@@ -1,49 +1,38 @@
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
-
 public class MyWoodLoader implements WoodLoader {
-	
-	public Wood Load(byte[] stream) throws IOException, CodeException {
-		Wood world;
-		ByteArrayInputStream reader= new ByteArrayInputStream(stream);
+
+	private char[][] m_wood;
+    Wood world;	
+    
+    public MyWoodLoader(char[][] wood) {
+    	m_wood=wood;
+    	
+	}
+	private Wood Wood(char[] m_wood2) {
+		return world=Wood(m_wood2);
+	}
+	public Wood Load(InputStream stream) throws IOException, CodeException {
 		File file = new File("world.txt");
-			try {
-				Scanner scanner = new Scanner(
-						new InputStreamReader(System.in));
-			int readValue=reader.read();
-			 ByteArrayOutputStream outstream = new  ByteArrayOutputStream();
-			try { 
-				PrintWriter writer = new PrintWriter(new OutputStreamWriter(outstream,"cp866"));
-				try {
-					while (readValue>=0) {
-						writer.write(readValue);
-						readValue=reader.read();
-					}
-				} finally	{
-					writer.close();	
+		Scanner sc= new Scanner(new InputStreamReader(new FileInputStream(file),"utf8"));
+		 try {
+			String a=sc.nextLine();
+			while (sc.nextLine() != null) {		
+				for (int j=0;j<4;j++)  
+				{
+					m_wood[j]=a.toCharArray();
+					world=Wood(m_wood[j]);
 				}
 			}
-			finally	{
-				outstream.close();
-			}
-		}
-		catch (IOException ex) {
-			throw new CodeException("Input correct arguments!");
 		} finally	{
-		reader.close();	
+			sc.close();	
 		}
-			return world;
+		return world;
 	}
-
-	
 }
 
