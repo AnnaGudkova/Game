@@ -1,16 +1,19 @@
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
+import org.junit.Test;
 
 public class MyWoodLoaderTest {
 
 	@Test
 	public void testLoad() {
-		char[][] wood;
-		MyWood W=new MyWood(wood); //экземпляр класса Wood
+		Wood W =WoodLoader.Load(new FileInputStream("world.txt"));
+		//MyWood W=new MyWood(wood); 
 		Point k=new Point(1,1);
 		W.createWoodman("A", k);
-		assertTrue(W.move("A",Direction.Down) == Action.Fail);
+		assertEquals(W.move("A",Direction.Down) , Action.Fail);
 		}
 }
