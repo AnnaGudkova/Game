@@ -5,23 +5,24 @@ public class MyWoodman implements Woodman {
 	private static Point m_start;
 	private Point m_location;
 	private static String m_name;
-
+	
 	public MyWoodman(String name, Point start) {
 		m_life_count=3;
 		m_start=m_location=start;
 		m_name=name;
 	}
-
+	
+    @Override
 	public int GetLifeCount() {
 		return m_life_count;
 	}
 
-
+    @Override
 	public String GetName() {
 		return m_name;
 	}
 
-
+    @Override
 	public boolean Kill() {
 		m_life_count=m_life_count-1;
 		if (m_life_count>-1)
@@ -30,22 +31,25 @@ public class MyWoodman implements Woodman {
 			return false;
 	}
 
-
+    @Override
 	public void AddLife() {
 		m_life_count=m_life_count+1;
 	}
 
-	//Местоположение персонажа на игровом поле.
+	//РњРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р° РЅР° РёРіСЂРѕРІРѕРј РїРѕР»Рµ.
+    @Override
 	public Point GetLocation() {
 		return m_location;
 	}
 
-	//Установить новое местоположение персонажа на игровом поле.
+	//РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РЅРѕРІРѕРµ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р° РЅР° РёРіСЂРѕРІРѕРј РїРѕР»Рµ.
+    @Override
 	public void SetLocation(Point location) {
 		m_location=location;
 	}
 
-	//Переместить игрока в стартовую точку
+	//РџРµСЂРµРјРµСЃС‚РёС‚СЊ РёРіСЂРѕРєР° РІ СЃС‚Р°СЂС‚РѕРІСѓСЋ С‚РѕС‡РєСѓ
+    @Override
 	public void MoveToStart() {
 		m_location=m_start;
 	}
