@@ -23,7 +23,7 @@ public class MyWoodLoader implements WoodLoader {
 		 try {
 			String a=sc.nextLine();
 			while (sc.nextLine() != null) {		
-				for (int j=0;j<4;j++)  
+				for (int j=0;j<m_wood.length;j++)  
 				{
 					m_wood[j]=a.toCharArray();
 					world=Wood(m_wood[j]);
