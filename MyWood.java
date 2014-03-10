@@ -22,121 +22,117 @@ public class MyWood implements Wood {
 		if (name!=new_name) {
 			result=Action.WoodmanNotFound;
 		} else {
-			if(m_woodmanList.GetLifeCount()>-1){
-			if (direction==Direction.Up) {//Point k=m_woodmanList.GetLocation();
-				Point n=new Point(m_start.getX()-1,m_start.getY());
-				if (m_wood[m_start.getX()-1][m_start.getY()]=='K') {
-					m_woodmanList.Kill();
-					if(m_woodmanList.GetLifeCount()>-1) result=Action.Dead;
-					else
-						result=Action.WoodmanNotFound;
-				}
-				if (m_wood[m_start.getX()-1][m_start.getY()]=='1') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Fail;
-				}
-				if (m_wood[m_start.getX()-1][m_start.getY()]=='0') {
-					
-					result=Action.Ok;
-					m_woodmanList.SetLocation(n); 
-				}
-				if (m_wood[m_start.getX()-1][m_start.getY()]=='L') {
-					m_woodmanList.AddLife();
-					result=Action.Life;
-				}
-			}
+			if(m_woodmanList.GetLifeCount()>-1) {
+				if (direction==Direction.Up) {//Point k=m_woodmanList.GetLocation();
+					Point n=new Point(m_start.getX()-1,m_start.getY());
+					if (m_wood[m_start.getX()-1][m_start.getY()]=='K') {
+						m_woodmanList.Kill();
+						result=Action.Dead;
 
-			if (direction==Direction.Down) {
-				//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()+1][m_start.getY()]; 
-				Point n=new Point(m_start.getX()+1,m_start.getY());
-				if (m_wood[m_start.getX()+1][m_start.getY()]=='K') {
-					m_woodmanList.Kill();
-					if(m_woodmanList.GetLifeCount()>-1) result=Action.Dead;
-					else
-						result=Action.WoodmanNotFound;
-				}
-				if (m_wood[m_start.getX()+1][m_start.getY()]=='1') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Fail;
-				}
-				if (m_wood[m_start.getX()+1][m_start.getY()]=='0') {
-					
-					result=Action.Ok;
-					m_woodmanList.SetLocation(n); 
-				}
-				if (m_wood[m_start.getX()+1][m_start.getY()]=='L') {
-					m_woodmanList.AddLife();
-					result=Action.Life;
-				}
-			}
+					}
+					if (m_wood[m_start.getX()-1][m_start.getY()]=='1') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Fail;
+					}
+					if (m_wood[m_start.getX()-1][m_start.getY()]=='0') {
 
-			if (direction==Direction.Left) {
-				Point n=new Point(m_start.getX(),m_start.getY()-1);
-				//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()][m_start.getY()-1]; 
-				if (m_wood[m_start.getX()][m_start.getY()-1]=='K') {
-					m_woodmanList.Kill();
-					if(m_woodmanList.GetLifeCount()>-1) result=Action.Dead;
-					else
-						result=Action.WoodmanNotFound;
+						result=Action.Ok;
+						m_woodmanList.SetLocation(n); 
+					}
+					if (m_wood[m_start.getX()-1][m_start.getY()]=='L') {
+						m_woodmanList.AddLife();
+						result=Action.Life;
+					}
 				}
-				if (m_wood[m_start.getX()][m_start.getY()-1]=='1') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Fail;
-				}
-				if (m_wood[m_start.getX()][m_start.getY()-1]=='0') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Ok;
-				}
-				if (m_wood[m_start.getX()][m_start.getY()-1]=='L') {
-					m_woodmanList.AddLife();
-					result=Action.Life;
-				}
-			}
 
-			if (direction==Direction.Right) {
-				Point n=new Point(m_start.getX(),m_start.getY()+1);
-				//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()][m_start.getY()+1]; 
-				
-				if (m_wood[m_start.getX()][m_start.getY()+1]=='K') {
-					m_woodmanList.Kill();
-					 result=Action.Dead;
-					
-				}
-				if (m_wood[m_start.getX()][m_start.getY()+1]=='1') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Fail;
-				}
-				if (m_wood[m_start.getX()][m_start.getY()+1]=='0') {
-					m_woodmanList.SetLocation(n); 
-					result=Action.Ok;
-				}
-				if (m_wood[m_start.getX()][m_start.getY()+1]=='L') {
-					m_woodmanList.AddLife();
-					result=Action.Life;
-				}
-			} 			
-			if (direction==Direction.None) {
+				if (direction==Direction.Down) {
+					//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()+1][m_start.getY()]; 
+					Point n=new Point(m_start.getX()+1,m_start.getY());
+					if (m_wood[m_start.getX()+1][m_start.getY()]=='K') {
+						m_woodmanList.Kill();
+						result=Action.Dead;
 
-				if (m_wood[m_start.getX()][m_start.getY()]=='K') {
-					m_woodmanList.Kill();
-					if(m_woodmanList.GetLifeCount()>-1) result=Action.Dead;
-					else
-						result=Action.WoodmanNotFound;
+					}
+					if (m_wood[m_start.getX()+1][m_start.getY()]=='1') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Fail;
+					}
+					if (m_wood[m_start.getX()+1][m_start.getY()]=='0') {
 
+						result=Action.Ok;
+						m_woodmanList.SetLocation(n); 
+					}
+					if (m_wood[m_start.getX()+1][m_start.getY()]=='L') {
+						m_woodmanList.AddLife();
+						result=Action.Life;
+					}
 				}
-				if (m_wood[m_start.getX()][m_start.getY()]=='1') {
-					result=Action.Fail;
+
+				if (direction==Direction.Left) {
+					Point n=new Point(m_start.getX(),m_start.getY()-1);
+					//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()][m_start.getY()-1]; 
+					if (m_wood[m_start.getX()][m_start.getY()-1]=='K') {
+						m_woodmanList.Kill();
+						result=Action.Dead;
+
+					}
+					if (m_wood[m_start.getX()][m_start.getY()-1]=='1') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Fail;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()-1]=='0') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Ok;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()-1]=='L') {
+						m_woodmanList.AddLife();
+						result=Action.Life;
+					}
 				}
-				if (m_wood[m_start.getX()][m_start.getY()]=='0') { 
-					result=Action.Ok;
-				}
-				if (m_wood[m_start.getX()][m_start.getY()]=='L') {
-					m_woodmanList.AddLife();
-					result=Action.Life;
-				}
-			}	
-		} else
-			result=Action.WoodmanNotFound;
+
+				if (direction==Direction.Right) {
+					Point n=new Point(m_start.getX(),m_start.getY()+1);
+					//m_wood[m_start.getX()][m_start.getY()]=m_wood[m_start.getX()][m_start.getY()+1]; 
+
+					if (m_wood[m_start.getX()][m_start.getY()+1]=='K') {
+						m_woodmanList.Kill();
+						result=Action.Dead;
+
+					}
+					if (m_wood[m_start.getX()][m_start.getY()+1]=='1') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Fail;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()+1]=='0') {
+						m_woodmanList.SetLocation(n); 
+						result=Action.Ok;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()+1]=='L') {
+						m_woodmanList.AddLife();
+						result=Action.Life;
+					}
+				} 			
+				if (direction==Direction.None) {
+
+					if (m_wood[m_start.getX()][m_start.getY()]=='K') {
+						m_woodmanList.Kill();
+						result=Action.Dead;
+
+
+					}
+					if (m_wood[m_start.getX()][m_start.getY()]=='1') {
+						result=Action.Fail;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()]=='0') { 
+						result=Action.Ok;
+					}
+					if (m_wood[m_start.getX()][m_start.getY()]=='L') {
+						m_woodmanList.AddLife();
+						result=Action.Life;
+					}
+				}	
+			} else
+				result=Action.WoodmanNotFound;
 		}
 
 		return result;
