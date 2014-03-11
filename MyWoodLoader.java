@@ -22,7 +22,7 @@ public class MyWoodLoader implements WoodLoader {
 				list.add(sc.nextLine());
 				m++;				
 			}
-			n=list.get(1).length();
+			n=list.get(0).length();
 			for (int j=0;j<m;j++)
 			{
 				if (list.get(j).length()!=n) throw new CodeException("Input correct world");
