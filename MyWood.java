@@ -118,7 +118,10 @@ public class MyWood implements Wood {
 					}
 				}	
 			} else
+				{
+				m_woodmanList.clear();
 				result=Action.WoodmanNotFound;
+			}
 		}
 		return result;
 	}
