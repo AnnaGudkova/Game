@@ -29,7 +29,7 @@ public class MyWoodLoader implements WoodLoader {
 					for (int i=0;i<m;i++){
 						m_wood[i]=list.get(n).toCharArray();	
 						}
-				}
+				} else throw new CodeException("Input correct world!");
 			}
 		} finally	{
 			sc.close();	
