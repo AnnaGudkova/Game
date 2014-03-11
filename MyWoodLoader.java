@@ -17,12 +17,14 @@ public class MyWoodLoader implements WoodLoader {
 		Scanner sc= new Scanner(new InputStreamReader(stream,"utf8"));
 		try {
 			n=sc.nextLine().length();
-			while(sc.hasNext()) {
+			list.add(sc.toString());
+			while(sc.hasNextLine()) {
 				list.add(sc.nextLine());
 				m++;
 				if(sc.nextLine().length()==n){
 					m_wood=new char[n][m];
 					for (int i=0;i<m;i++){
+						
 						m_wood[i]=list.get(i).toCharArray();	
 						}
 				} else throw new CodeException("Input correct world!");
