@@ -23,7 +23,7 @@ public class MyWoodTest {
 		MyWood W=new MyWood(wood);
 		Point k=new Point(1,1);
 		W.createWoodman("A", k);
-		assertTrue(W.move("B", Direction.Up) == Action.WoodmanNotFound);
+		assertTrue(W.move("B", Direction.Down) == Action.WoodmanNotFound);
 	}
 
 	@Test
@@ -108,7 +108,7 @@ public class MyWoodTest {
 		Point k=new Point(1,1);
 		W.createWoodman("A", k);
 		W.move("A",Direction.Down);
-		assertTrue(W.move("A",Direction.Right) == Action.Life);
+		assertTrue(W.move("A",Direction.Right) == Action.Dead);
 	}
 
 	@Test
@@ -130,24 +130,13 @@ public class MyWoodTest {
 		Point k1=new Point(1,1);
 		W.createWoodman("A", k1);
 		W.move("A",Direction.Down); //ok
-		Point k2=new Point(2,1);
-		W.createWoodman("A", k2);
 		W.move("A",Direction.Right); //dead
-		Point k3=new Point(2,2);
-		W.createWoodman("A", k3);
 		W.move("A",Direction.Left);  //ok
-		W.createWoodman("A", k2);
 		W.move("A",Direction.Right); //dead
-		W.createWoodman("A", k3);
 		W.move("A",Direction.Left); //ok
-		W.createWoodman("A", k2);
 		W.move("A",Direction.Right); //dead
-		W.createWoodman("A", k3);
 		W.move("A",Direction.Left); //ok
-		W.createWoodman("A", k2);
-		W.move("A",Direction.Right);  //dead
-		W.createWoodman("A", k3);
-		assertEquals(W.move("A",Direction.Left) , Action.WoodmanNotFound);
+		W.move("A",Direction.Right); //dead
+		assertEquals(W.move("A",Direction.Right) , Action.WoodmanNotFound);
 	}
-
 }
