@@ -18,9 +18,10 @@ public class MyWoodLoader implements WoodLoader {
 		try {
 			n=sc.nextLine().length();
 			list.add(sc.toString());
-			while(sc.hasNextLine()) {
+			while(sc.hasNextLine()) { {
 				list.add(sc.nextLine());
 				m++;
+			}
 				if(sc.nextLine().length()==n){
 					m_wood=new char[n][m];
 					for (int i=0;i<m;i++){
