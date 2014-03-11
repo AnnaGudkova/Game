@@ -1,38 +1,40 @@
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyWoodLoader implements WoodLoader {
 
 	private char[][] m_wood;
-    Wood world;	
-    
-    public MyWoodLoader(char[][] wood) {
-    	m_wood=wood;
-    	
-	}
-	private Wood Wood(char[] m_wood2) {
-		return world=Wood(m_wood2);
-	}
+	MyWood world=new MyWood(m_wood);	
+
+	public MyWoodLoader(char[][] wood) {
+		m_wood=wood;
+		}
+
 	public Wood Load(InputStream stream) throws IOException, CodeException {
-		File file = new File("world.txt");
-		Scanner sc= new Scanner(new InputStreamReader(new FileInputStream(file),"utf8"));
-		 try {
-			String a=sc.nextLine();
-			while (sc.nextLine() != null) {		
-				for (int j=0;j<m_wood.length;j++)  
-				{
-					m_wood[j]=a.toCharArray();
-					world=Wood(m_wood[j]);
+		int n=0;
+		int m=0;
+		List<String> list = new LinkedList<String>();
+		Scanner sc= new Scanner(new InputStreamReader(stream,"utf8"));
+		try {
+			n=sc.nextLine().length();
+			while(sc.hasNext()) {
+				list.add(sc.nextLine());
+				m++;
+				if(sc.nextLine().length()==n){
+					m_wood=new char[n][m];
+					for (int i=0;i<m;i++){
+						m_wood[i]=list.get(n).toCharArray();	
+						}
 				}
 			}
 		} finally	{
 			sc.close();	
 		}
-		return world;
+			return world;
 	}
 }
 
