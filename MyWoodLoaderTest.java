@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -9,11 +11,13 @@ import org.junit.Test;
 public class MyWoodLoaderTest {
 
 	@Test
-	public void testLoad() {
-		Wood W =WoodLoader.Load(new FileInputStream("world.txt"));
-		//MyWood W=new MyWood(wood); 
+	public void testLoad() throws IOException, CodeException {
+		File file=new File("world.txt");
+		FileInputStream stream=new FileInputStream(file);
+		MyWoodLoader W =new MyWoodLoader();	
+		Wood wood=W.Load(stream);
 		Point k=new Point(1,1);
-		W.createWoodman("A", k);
-		assertEquals(W.move("A",Direction.Down) , Action.Fail);
+		wood.createWoodman("A", k);
+		assertEquals(wood.move("A",Direction.Down) , Action.Fail);
 		}
 }
