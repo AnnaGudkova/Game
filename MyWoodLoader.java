@@ -10,11 +10,7 @@ public class MyWoodLoader implements WoodLoader {
 	private char[][] m_wood;
 	MyWood world=new MyWood(m_wood);	
 
-	public MyWoodLoader(char[][] wood) {
-		m_wood=wood;
-		}
-
-	public Wood Load(InputStream stream) throws IOException, CodeException {
+		public Wood Load(InputStream stream) throws IOException, CodeException {
 		int n=0;
 		int m=0;
 		List<String> list = new LinkedList<String>();
@@ -27,7 +23,7 @@ public class MyWoodLoader implements WoodLoader {
 				if(sc.nextLine().length()==n){
 					m_wood=new char[n][m];
 					for (int i=0;i<m;i++){
-						m_wood[i]=list.get(n).toCharArray();	
+						m_wood[i]=list.get(i).toCharArray();	
 						}
 				} else throw new CodeException("Input correct world!");
 			}
